@@ -1,5 +1,6 @@
 package com.example.projectmanager.ui.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,7 @@ public class EmployeeForProjetAdapter extends ListAdapter<EmployeeProject, Emplo
         }
 
         public void bind(EmployeeProject employeeProject) {
+            Log.i("IsACtive", String.valueOf(employeeProject.isActive()));
             if (employeeProject.isActive()) {
                 employee_name.setText(employeeProject.getEmployeeName().concat(" (en cours)"));
             } else {

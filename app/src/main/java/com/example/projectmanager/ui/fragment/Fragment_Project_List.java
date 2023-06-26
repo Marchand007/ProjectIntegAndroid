@@ -73,7 +73,7 @@ public class Fragment_Project_List extends Fragment {
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(R.string.confirmerajout, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                employeeProjectViewModel.addProject(employeeName,project.getId());
+                                employeeProjectViewModel.addProject(employeeName,project.getId(),project.getName());
                                 NavController navController = Navigation.findNavController(view);
                                 navController.navigateUp();
                             }

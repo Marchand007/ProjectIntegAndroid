@@ -33,8 +33,8 @@ public class EmployeeProjectViewModel extends ViewModel {
         return repository.getCompletedProjectForEmployee(employeeName);
     }
 
-    public void addProject(String employeeName, Integer projectId) {
-        repository.addProject(new EmployeeProject(employeeName, projectId));
+    public void addProject(String employeeName, Integer projectId, String projectName) {
+        repository.addProject(new EmployeeProject(employeeName, projectId, projectName));
     }
 
     public void deleteProject(EmployeeProject employeeProject) {

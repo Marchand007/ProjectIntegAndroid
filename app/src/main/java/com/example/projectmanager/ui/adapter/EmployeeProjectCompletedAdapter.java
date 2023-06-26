@@ -80,7 +80,7 @@ public class EmployeeProjectCompletedAdapter extends ListAdapter<EmployeeProject
         }
 
         public void bind(EmployeeProject employeeProject) {
-            project_name.setText(String.valueOf(employeeProject.getProjectId()));
+            project_name.setText(String.valueOf(employeeProject.getProjectName()));
             this.employeeProject = employeeProject;
         }
     }

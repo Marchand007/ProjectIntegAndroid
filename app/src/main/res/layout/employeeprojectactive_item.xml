@@ -26,10 +26,11 @@
 
             <TextView
                 android:id="@+id/textViewEmployeeProjectActiveName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="nom du projet"
+                android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/imageButton2"

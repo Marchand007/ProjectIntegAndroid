@@ -16,7 +16,10 @@ private String name;
 
 @Nullable
 @ColumnInfo(name = "manager_name")
+
 private String managerName;
+
+private String role;
 
     public Employee(@NonNull String name) {
         this.name = name;
@@ -40,4 +43,11 @@ private String managerName;
         this.managerName = managerName;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

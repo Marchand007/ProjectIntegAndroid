@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 
 import com.example.projectmanager.data.models.Employee;
 import com.example.projectmanager.data.models.Project;
@@ -40,14 +41,17 @@ public class EmployeeProject implements Serializable {
 @NonNull
     private Integer projectId;
 
+@ColumnInfo(name = "project_name")
+private String projectName;
 @ColumnInfo(name = "is_active")
     private boolean isActive;
 
     private int priority;
 
-    public EmployeeProject(@NonNull  String employeeName, @NonNull Integer projectId) {
+    public EmployeeProject(@NonNull  String employeeName, @NonNull Integer projectId, @NonNull String projectName) {
         this.employeeName = employeeName;
         this.projectId = projectId;
+        this.projectName = projectName;
         this.isActive = true;
         this.priority = 2;
     }
@@ -84,5 +88,14 @@ public class EmployeeProject implements Serializable {
 
     public void setPriority(int priority) {
         this.priority = priority;
+    }
+
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 }

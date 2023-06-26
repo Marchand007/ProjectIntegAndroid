@@ -86,8 +86,7 @@ public class EmployeeProjectActiveAdapter extends ListAdapter<EmployeeProject, E
         }
 
         public void bind(EmployeeProject employeeProject) {
-            
-            project_name.setText(String.valueOf(employeeProject.getProjectId()));
+            project_name.setText(employeeProject.getProjectName());
             this.employeeProject = employeeProject;
         }
     }
