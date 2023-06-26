@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigate"
+    app:startDestination="@id/fragment_Employee_List">
+
+    <fragment
+        android:id="@+id/fragment_Employee_List"
+        android:name="com.example.projectmanager.ui.fragment.Fragment_Employee_List"
+        android:label="Liste des employer"
+        tools:layout="@layout/fragment_employee_list" >
+        <action
+            android:id="@+id/action_fragment_Employee_List_to_fragment_Project_List_By_Employee"
+            app:destination="@id/fragment_Project_List_By_Employee"
+            app:popUpTo="@id/fragment_Employee_List" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Project_List_By_Employee"
+        android:name="com.example.projectmanager.ui.fragment.Fragment_Project_List_By_Employee"
+        android:label="Project Pour un employer" >
+        <action
+            android:id="@+id/action_fragment_Project_List_By_Employee_to_fragment_Project_List"
+            app:destination="@id/fragment_Project_List"
+            app:popUpTo="@id/fragment_Project_List_By_Employee" />
+        <action
+            android:id="@+id/action_fragment_Project_List_By_Employee_to_fragment_Project_Info"
+            app:destination="@id/fragment_Project_Info"
+            app:popUpTo="@id/fragment_Project_List_By_Employee" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Project_List"
+        android:name="com.example.projectmanager.ui.fragment.Fragment_Project_List"
+        android:label="Liste des projets"
+        tools:layout="@layout/fragment__project__list" >
+        <action
+            android:id="@+id/action_fragment_Project_List_to_fragment_Project_Info"
+            app:destination="@id/fragment_Project_Info"
+            app:popUpTo="@id/fragment_Project_List" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Project_Info"
+        android:name="com.example.projectmanager.ui.fragment.Fragment_Project_Info"
+        android:label="Information du projet"
+        tools:layout="@layout/fragment__project__info" />
+</navigation>

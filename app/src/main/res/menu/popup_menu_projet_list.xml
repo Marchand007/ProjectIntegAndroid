@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ajouterprojectaemploye"
+        android:title="Ajouter ce projet a lemployer" />
+    <item
+        android:id="@+id/voirleproject"
+        android:title="Voir les details du project" />
+
+</menu>

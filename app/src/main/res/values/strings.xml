@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ProjectManager</string>
+    <string name="ajouteremploye">Ajouter un employé</string>
+    <string name="ajouterprojetemploye">Ajouter un projet à l\'employé</string>
+    <string name="ajouterprojetemploye_list">Ajouter le projet à l\'employé</string>
+    <string name="listeemploye">Liste des employés</string>
+    <string name="listeeprojetsemploye">Liste des projects de </string>
+    <string name="confirmersupression">Confirmer la supression</string>
+    <string name="confirmerajout">Confirmer l\'ajout</string>
+    <string name="annuler">Annuler</string>
+    <string name="encours">En cours </string>
+    <string name="completes">Completés</string>
+    <string name="marquercompleted"><u>Marquer le projet comme complété</u></string>
+    <string name="remettreactif"><u>Remettre le project actif</u></string>
+    <string name="textlisteemployessurprojet">Liste des employés sur le projet</string>
+    <string name="textnomduprojet">Nom du projet</string>
+    <string name="textnomduclient">Client</string>
+    <string name="textdatedealine">Date du deadline</string>
+    <string name="textnomemployeeaajouter">Nom de l\'employé à ajouter</string>
+
+
+
+</resources>
