@@ -96,3 +96,12 @@ public class Fragment_Employee_List extends Fragment {
         };
     }
 }
+
+
+//mettre le crochet et le rollback a place du texte
+//mettre radio button priority dans le item du employeeProject pour pouvoir le modifier live
+//mettre radio button priority dans l<ajout dun projet a un employe
+//mettre input pour role lorsqu on ajoute un employee a la liste
+
+// regler le isactive qui ne change pas.
+// regler le constructeur de employeeProject

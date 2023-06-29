@@ -32,7 +32,7 @@
         android:id="@+id/fragment_Project_List"
         android:name="com.example.projectmanager.ui.fragment.Fragment_Project_List"
         android:label="Liste des projets"
-        tools:layout="@layout/fragment__project__list" >
+        tools:layout="@layout/fragment__project__list__add" >
         <action
             android:id="@+id/action_fragment_Project_List_to_fragment_Project_Info"
             app:destination="@id/fragment_Project_Info"

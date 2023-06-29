@@ -37,7 +37,7 @@ public class Fragment_Project_List extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__project__list, container, false);
+        return inflater.inflate(R.layout.fragment__project__list__add, container, false);
     }
 
     @Override
@@ -73,7 +73,8 @@ public class Fragment_Project_List extends Fragment {
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(R.string.confirmerajout, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                employeeProjectViewModel.addProject(employeeName,project.getId(),project.getName());
+
+                                employeeProjectViewModel.addProject(employeeName,project.getId(),project.getName(),true,2);
                                 NavController navController = Navigation.findNavController(view);
                                 navController.navigateUp();
                             }

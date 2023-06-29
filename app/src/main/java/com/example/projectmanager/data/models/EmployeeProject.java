@@ -48,12 +48,12 @@ private String projectName;
 
     private int priority;
 
-    public EmployeeProject(@NonNull  String employeeName, @NonNull Integer projectId, @NonNull String projectName) {
+    public EmployeeProject(@NonNull  String employeeName, @NonNull Integer projectId, @NonNull String projectName, Boolean isActive, Integer priority) {
         this.employeeName = employeeName;
         this.projectId = projectId;
         this.projectName = projectName;
-        this.isActive = true;
-        this.priority = 2;
+        this.isActive = isActive;
+        this.priority = priority;
     }
 
     @NonNull

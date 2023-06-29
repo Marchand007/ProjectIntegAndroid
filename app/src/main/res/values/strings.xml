@@ -17,7 +17,10 @@
     <string name="textnomduclient">Client</string>
     <string name="textdatedealine">Date du deadline</string>
     <string name="textnomemployeeaajouter">Nom de l\'employé à ajouter</string>
-
+    <string name="priorite">Priorité du projet</string>
+    <string name="elevé">Elevé</string>
+    <string name="normal">Normal</string>
+    <string name="bas">Bas</string>
 
 
 </resources>

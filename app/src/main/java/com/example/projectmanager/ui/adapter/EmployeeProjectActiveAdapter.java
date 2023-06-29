@@ -65,7 +65,7 @@ public class EmployeeProjectActiveAdapter extends ListAdapter<EmployeeProject, E
         private EmployeeProject employeeProject;
         private ImageButton btnViewProjectDetail;
         private ImageButton btnDeleteEmployeeProject;
-        private Button btnMarkAsCompleted;
+        private ImageButton btnMarkAsCompleted;
 
         public ViewHolder(@NonNull View actualView) {
             super(actualView);

@@ -17,7 +17,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 @HiltViewModel
 public class EmployeeProjectViewModel extends ViewModel {
 
-    private EmployeeProjectRepository repository;
+    private final EmployeeProjectRepository repository;
     private MutableLiveData<String> listViewOption;
 
     @Inject
@@ -33,8 +33,8 @@ public class EmployeeProjectViewModel extends ViewModel {
         return repository.getCompletedProjectForEmployee(employeeName);
     }
 
-    public void addProject(String employeeName, Integer projectId, String projectName) {
-        repository.addProject(new EmployeeProject(employeeName, projectId, projectName));
+    public void addProject(String employeeName, Integer projectId, String projectName, Boolean isActive, Integer priority) {
+        repository.addProject(new EmployeeProject(employeeName, projectId, projectName,isActive,priority));
     }
 
     public void deleteProject(EmployeeProject employeeProject) {

@@ -20,7 +20,6 @@ public class DatabaseModule {
     public static ProjectManagerDatabase provideDatabase(@ApplicationContext Context context) {
         return Room.databaseBuilder(context, ProjectManagerDatabase.class,"ProjectManager")
                 .createFromAsset("database/ProjectManager.db")
-                .fallbackToDestructiveMigration()
                 .build();
     }
 }

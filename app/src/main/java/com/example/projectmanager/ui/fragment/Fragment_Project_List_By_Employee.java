@@ -94,7 +94,7 @@ public class Fragment_Project_List_By_Employee extends Fragment {
         adapterActive.callbackDelete = new RecyclerCallback<EmployeeProject>() {
             @Override
             public void returnValue(EmployeeProject employeeProject) {
-                new AlertDialog.Builder(view.getContext()).setTitle("Confirmation de suppresion").setMessage("Êtes-vous vraiment sur de vouloir supprimer " + projectViewModel.getProject(employeeProject.getProjectId()).getValue().getName())
+                new AlertDialog.Builder(view.getContext()).setTitle("Confirmation de suppresion").setMessage("Êtes-vous vraiment sur de vouloir supprimer " + employeeProject.getProjectName())
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(R.string.confirmersupression, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
@@ -110,7 +110,7 @@ public class Fragment_Project_List_By_Employee extends Fragment {
         adapterCompleted.callbackDelete = new RecyclerCallback<EmployeeProject>() {
             @Override
             public void returnValue(EmployeeProject employeeProject) {
-                new AlertDialog.Builder(view.getContext()).setTitle("Confirmation de suppresion").setMessage("Êtes-vous vraiment sur de vouloir supprimer " + projectViewModel.getProject(employeeProject.getProjectId()).getValue().getName())
+                new AlertDialog.Builder(view.getContext()).setTitle("Confirmation de suppresion").setMessage("Êtes-vous vraiment sur de vouloir supprimer " + employeeProject.getProjectName())
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(R.string.confirmersupression, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
@@ -142,6 +142,7 @@ public class Fragment_Project_List_By_Employee extends Fragment {
         adapterActive.callbackCompleted = new RecyclerCallback<EmployeeProject>() {
             @Override
             public void returnValue(EmployeeProject employeeProject) {
+                Log.i("ICI", "COMPLETE ");
                 employeeProject.setActive(false);
                 employeeProjectViewModel.updateEmployeeProject(employeeProject);
             }
@@ -149,6 +150,7 @@ public class Fragment_Project_List_By_Employee extends Fragment {
         adapterCompleted.callbackReActive = new RecyclerCallback<EmployeeProject>() {
             @Override
             public void returnValue(EmployeeProject employeeProject) {
+                Log.i("ICI", "REACTIVE ");
                 employeeProject.setActive(true);
                 employeeProjectViewModel.updateEmployeeProject(employeeProject);
             }
