@@ -38,3 +38,43 @@ public class MainActivity extends AppCompatActivity {
         return super.onSupportNavigateUp();
     }
 }
+
+
+
+// mettre le crochet et le rollback a place du texte
+// (FAIT)
+
+//mettre radio button priority dans le item du employeeProject pour pouvoir le
+//  modifier live
+//  ou on fait un layout unique avec les meme info que les details du projet mais
+//  avec l'option de modifier la priority dedans (et peut etre aussi l'option
+//  de marqué comme complété / réactivé dans ce layout la et la suppression)
+
+//mettre radio button priority dans l'ajout dun projet a un employe
+
+//mettre input pour role lorsqu on ajoute un employee a la liste
+//(FAIT)
+
+//regler le isactive qui ne change pas.
+// (FAIT)
+
+//regler le constructeur de employeeProject
+// (FAIT)
+
+// liste des projets de NOM (TROP PETIT)
+// (FAIT)
+
+// refoctoring en anglais
+
+// faire progression bar sur le projet avec encours / complété
+
+//renommer le employeeforprojectAdapter par employeeListInProjectAdapter
+//(FAIT)
+
+//renomme projectAdapter pour projectListforAddAdapter
+//(FAIT)
+
+// possbiliter de ajouter un employer a partir de les info du projet (reutiliser le fragment de la liste demployee
+//  avec un autre boutton
+
+// utiliser les getstring et les R.string

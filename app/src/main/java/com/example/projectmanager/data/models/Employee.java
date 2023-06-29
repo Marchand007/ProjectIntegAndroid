@@ -10,44 +10,42 @@ import java.io.Serializable;
 
 @Entity
 public class Employee implements Serializable {
-@PrimaryKey
-@NonNull
-private String name;
 
-@Nullable
-@ColumnInfo(name = "manager_name")
-
-private String managerName;
-
-private String role;
-
-    public Employee(@NonNull String name) {
-        this.name = name;
-    }
+    @PrimaryKey
+    @NonNull
+    private Integer eid;
 
     @NonNull
-    public String getName() {
-        return name;
-    }
+    private String name;
+    @NonNull
+    private String role;
 
-    public void setName(@NonNull String name) {
+    @ColumnInfo(name = "manager_name")
+    private String managerName;
+
+    public Employee(@NonNull Integer eid, @NonNull String name, @NonNull String role, String managerName) {
+        this.eid = eid;
         this.name = name;
-    }
-
-    @Nullable
-    public String getManagerName() {
-        return managerName;
-    }
-
-    public void setManagerName(@Nullable String managerName) {
+        this.role = role;
         this.managerName = managerName;
     }
 
-    public String getRole() {
-        return role;
-    }
+    @NonNull
+    public String getName() { return name; }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+    public void setName(@NonNull String name) { this.name = name; }
+
+    @NonNull
+    public String getRole() { return role; }
+
+    public void setRole(@NonNull String role) { this.role = role; }
+
+    @NonNull
+    public Integer getEid() { return eid; }
+
+    public void setEid(@NonNull Integer eid) { this.eid = eid; }
+
+    public String getManagerName() { return managerName; }
+
+    public void setManagerName(String managerName) { this.managerName = managerName; }
 }

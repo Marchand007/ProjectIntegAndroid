@@ -23,8 +23,8 @@ public class EmployeeListViewModel extends ViewModel {
     public LiveData<List<Employee>> getAllEmployee() {
         return repository.getAllEmployee();
     }
-    public void addEmployee(String name) {
-        repository.addEmployee(new Employee(name));
+    public void addEmployee(Integer employeeEid, String name, String role, String manager) {
+        repository.addEmployee(new Employee(employeeEid, name, role, manager));
     }
     public void deleteEmployee(Employee employee) {
         repository.deleteEmployee(employee);

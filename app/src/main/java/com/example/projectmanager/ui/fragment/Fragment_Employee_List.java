@@ -60,11 +60,13 @@ public class Fragment_Employee_List extends Fragment {
 
         Button btnAddEmployee = view.findViewById(R.id.buttonAddEmployee);
         EditText EmployeeNameToAdd = view.findViewById(R.id.editTextAddEmployee_name);
+        EditText EmployeeRoleToAdd = view.findViewById(R.id.editTextEmployeeRoleToAdd);
 
         btnAddEmployee.setOnClickListener(v -> {
-            if (!EmployeeNameToAdd.getText().toString().equals("")) {
-                viewModel.addEmployee(EmployeeNameToAdd.getText().toString());
+            if (!EmployeeNameToAdd.getText().toString().equals("") && !EmployeeRoleToAdd.getText().toString().equals("")) {
+                viewModel.addEmployee(332,EmployeeNameToAdd.getText().toString(),EmployeeRoleToAdd.getText().toString(),null);
                 EmployeeNameToAdd.setText("");
+                EmployeeRoleToAdd.setText("");
             }
         });
 
@@ -72,7 +74,7 @@ public class Fragment_Employee_List extends Fragment {
         adapter.callbackDelete = new RecyclerCallback<Employee>() {
             @Override
             public void returnValue(Employee emp) {
-                new AlertDialog.Builder(view.getContext()).setTitle("Confirmation de suppresion").setMessage("Êtes-vous vraiment sur de vouloir supprimer " + emp.getName())
+                new AlertDialog.Builder(view.getContext()).setTitle("Confirmation de suppresion").setMessage("Voulez-vous vraiment supprimer " + emp.getName())
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(R.string.confirmersupression, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
@@ -91,17 +93,9 @@ public class Fragment_Employee_List extends Fragment {
             public void returnValue(Employee emp) {
                 Bundle bundle = new Bundle();
                 bundle.putString("employeeName", emp.getName());
+                bundle.putInt("employeeEid", emp.getEid());
                 Navigation.findNavController(view).navigate(R.id.action_fragment_Employee_List_to_fragment_Project_List_By_Employee, bundle);
             }
         };
     }
 }
-
-
-//mettre le crochet et le rollback a place du texte
-//mettre radio button priority dans le item du employeeProject pour pouvoir le modifier live
-//mettre radio button priority dans l<ajout dun projet a un employe
-//mettre input pour role lorsqu on ajoute un employee a la liste
-
-// regler le isactive qui ne change pas.
-// regler le constructeur de employeeProject
