@@ -38,6 +38,7 @@ public class Fragment_Project_List_By_Employee extends Fragment {
     private EmployeeProjectActiveAdapter adapterActive = new EmployeeProjectActiveAdapter();
     private EmployeeProjectCompletedAdapter adapterCompleted = new EmployeeProjectCompletedAdapter();
     private String employeeName;
+    private Integer employeeEid;
 
 
     @Override
@@ -67,17 +68,18 @@ public class Fragment_Project_List_By_Employee extends Fragment {
         }
 
         employeeName = arguments.getString("employeeName");
+        employeeEid = arguments.getInt("employeeEid");
         TextView textViewEmployeeName = view.findViewById(R.id.textViewEmployeeName_in_employeeproject);
-        textViewEmployeeName.setText(employeeName);
+        textViewEmployeeName.setText(employeeName.concat(" (").concat(String.valueOf(employeeEid)).concat(")"));
 
 
-        employeeProjectViewModel.getActiveProjectForEmployee(employeeName).observe(getViewLifecycleOwner(), new Observer<List<EmployeeProject>>() {
+        employeeProjectViewModel.getActiveProjectForEmployee(employeeEid).observe(getViewLifecycleOwner(), new Observer<List<EmployeeProject>>() {
             @Override
             public void onChanged(List<EmployeeProject> employeeProjects) {
                 adapterActive.submitList(employeeProjects);
             }
         });
-        employeeProjectViewModel.getCompletedProjectForEmployee(employeeName).observe(getViewLifecycleOwner(), new Observer<List<EmployeeProject>>() {
+        employeeProjectViewModel.getCompletedProjectForEmployee(employeeEid).observe(getViewLifecycleOwner(), new Observer<List<EmployeeProject>>() {
             @Override
             public void onChanged(List<EmployeeProject> employeeProjects) {
                 adapterCompleted.submitList(employeeProjects);
@@ -88,6 +90,7 @@ public class Fragment_Project_List_By_Employee extends Fragment {
         btnAddProjectToEmployee.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putString("employeeName", employeeName);
+            bundle.putInt("employeeEid", employeeEid);
             Navigation.findNavController(view).navigate(R.id.action_fragment_Project_List_By_Employee_to_fragment_Project_List, bundle);
         });
 

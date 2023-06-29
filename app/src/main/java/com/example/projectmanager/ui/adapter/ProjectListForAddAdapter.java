@@ -1,13 +1,9 @@
 package com.example.projectmanager.ui.adapter;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,12 +15,12 @@ import com.example.projectmanager.R;
 import com.example.projectmanager.RecyclerCallback;
 import com.example.projectmanager.data.models.Project;
 
-public class ProjectAdapter extends ListAdapter<Project, ProjectAdapter.ViewHolder> {
+public class ProjectListForAddAdapter extends ListAdapter<Project, ProjectListForAddAdapter.ViewHolder> {
 
     public RecyclerCallback<Project> callbackView = (U) -> { };
     public RecyclerCallback<Project> callbackAdd= (U) -> { };
 
-    public ProjectAdapter() {
+    public ProjectListForAddAdapter() {
         super(new DiffUtil.ItemCallback<Project>() {
             @Override
             public boolean areItemsTheSame(@NonNull Project oldItem, @NonNull Project newItem) {
@@ -40,13 +36,13 @@ public class ProjectAdapter extends ListAdapter<Project, ProjectAdapter.ViewHold
 
     @NonNull
     @Override
-    public ProjectAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProjectListForAddAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.project_item, parent, false);
-        return new ProjectAdapter.ViewHolder(view);
+        return new ProjectListForAddAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProjectAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProjectListForAddAdapter.ViewHolder holder, int position) {
         holder.bind(getItem(position));
     }
 

@@ -25,16 +25,16 @@ public class EmployeeProjectViewModel extends ViewModel {
         this.repository = repository;
     }
 
-    public LiveData<List<EmployeeProject>> getActiveProjectForEmployee(String employeeName) {
-        return repository.getActiveProjectForEmployee(employeeName);
+    public LiveData<List<EmployeeProject>> getActiveProjectForEmployee(Integer employeeEid) {
+        return repository.getActiveProjectForEmployee(employeeEid);
     }
 
-    public LiveData<List<EmployeeProject>> getCompletedProjectForEmployee(String employeeName) {
-        return repository.getCompletedProjectForEmployee(employeeName);
+    public LiveData<List<EmployeeProject>> getCompletedProjectForEmployee(Integer employeeEid) {
+        return repository.getCompletedProjectForEmployee(employeeEid);
     }
 
-    public void addProject(String employeeName, Integer projectId, String projectName, Boolean isActive, Integer priority) {
-        repository.addProject(new EmployeeProject(employeeName, projectId, projectName,isActive,priority));
+    public void addProject(Integer employeeEid, Integer projectId, Boolean isActive, Integer priority, String projectName, String employeeName) {
+        repository.addProject(new EmployeeProject(employeeEid, projectId, isActive, priority, projectName, employeeName));
     }
 
     public void deleteProject(EmployeeProject employeeProject) {

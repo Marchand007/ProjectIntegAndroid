@@ -21,13 +21,13 @@ public interface EmployeeProjectDAO {
 
         @Query("SELECT EmployeeProject.* FROM EmployeeProject " +
                 "JOIN Project on EmployeeProject.project_id = Project.id " +
-                "WHERE EmployeeProject.employee_name = :employeeName AND EmployeeProject.is_active = 1 ORDER BY EmployeeProject.priority ASC")
-                public LiveData<List<EmployeeProject>> getActiveProjectForEmployee(String employeeName);
+                "WHERE EmployeeProject.employee_eid = :employeeEid AND EmployeeProject.is_active = 1 ORDER BY EmployeeProject.priority ASC")
+                public LiveData<List<EmployeeProject>> getActiveProjectForEmployee(Integer employeeEid);
 
         @Query("SELECT EmployeeProject.* FROM EmployeeProject " +
                 "JOIN Project on EmployeeProject.project_id = Project.id " +
-                "WHERE EmployeeProject.employee_name = :employeeName AND EmployeeProject.is_active = 0 ORDER BY EmployeeProject.priority ASC")
-        public LiveData<List<EmployeeProject>> getCompletedProjectForEmployee(String employeeName);
+                "WHERE EmployeeProject.employee_eid = :employeeEid AND EmployeeProject.is_active = 0 ORDER BY EmployeeProject.priority ASC")
+        public LiveData<List<EmployeeProject>> getCompletedProjectForEmployee(Integer employeeEid);
 
         @Insert(onConflict = OnConflictStrategy.IGNORE)
         public void addProject(EmployeeProject employeeProject);

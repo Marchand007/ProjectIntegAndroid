@@ -1,7 +1,5 @@
 package com.example.projectmanager.ui.fragment;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,32 +11,22 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.projectmanager.R;
-import com.example.projectmanager.RecyclerCallback;
-import com.example.projectmanager.data.models.Employee;
 import com.example.projectmanager.data.models.EmployeeProject;
 import com.example.projectmanager.data.models.Project;
-import com.example.projectmanager.ui.adapter.EmployeeAdapter;
-import com.example.projectmanager.ui.adapter.EmployeeForProjetAdapter;
-import com.example.projectmanager.ui.adapter.ProjectAdapter;
-import com.example.projectmanager.ui.viewmodel.EmployeeListViewModel;
+import com.example.projectmanager.ui.adapter.EmployeeListInProjectAdapter;
 import com.example.projectmanager.ui.viewmodel.ProjectViewModel;
 
 import java.util.List;
 
 public class Fragment_Project_Info extends Fragment {
 
-    private EmployeeForProjetAdapter adapter = new EmployeeForProjetAdapter();
+    private EmployeeListInProjectAdapter adapter = new EmployeeListInProjectAdapter();
     private String projectName;
     private Integer projectId;
     @Override

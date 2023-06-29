@@ -26,12 +26,12 @@ public class EmployeeProjectRepository {
     public EmployeeProjectRepository(ProjectManagerDatabase database) { employeePRojectsDAO = database.getEmployeeProjectDao(); }
 
 
-    public LiveData<List<EmployeeProject>> getActiveProjectForEmployee(String employeeName) {
-        return employeePRojectsDAO.getActiveProjectForEmployee(employeeName);
+    public LiveData<List<EmployeeProject>> getActiveProjectForEmployee(Integer employeeEid) {
+        return employeePRojectsDAO.getActiveProjectForEmployee(employeeEid);
     }
 
-    public LiveData<List<EmployeeProject>> getCompletedProjectForEmployee(String employeeName) {
-        return employeePRojectsDAO.getCompletedProjectForEmployee(employeeName);
+    public LiveData<List<EmployeeProject>> getCompletedProjectForEmployee(Integer employeeEid) {
+        return employeePRojectsDAO.getCompletedProjectForEmployee(employeeEid);
     }
 
     public void addProject(EmployeeProject employeeProject) {

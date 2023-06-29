@@ -1,6 +1,7 @@
 package com.example.projectmanager.data.models;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -16,6 +17,7 @@ public class Project implements Serializable {
     @NonNull
     private String name;
     private String client;
+    @ColumnInfo(name = "deadline_date")
     private String deadlineDate;
 
     public Project(@NonNull String name, String deadlineDate) {

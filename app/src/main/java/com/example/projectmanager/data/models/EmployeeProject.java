@@ -7,20 +7,17 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 
-import com.example.projectmanager.data.models.Employee;
-import com.example.projectmanager.data.models.Project;
-
 import java.io.Serializable;
 
 @Entity(
         primaryKeys = {
-                "employee_name", "project_id"
+                "employee_eid", "project_id"
         },
         foreignKeys = {
                 @ForeignKey(
                         entity = Employee.class,
-                        parentColumns = "name",
-                        childColumns = "employee_name",
+                        parentColumns = "eid",
+                        childColumns = "employee_eid",
                         onDelete = ForeignKey.CASCADE
                 ),
                 @ForeignKey(
@@ -33,36 +30,44 @@ import java.io.Serializable;
 )
 public class EmployeeProject implements Serializable {
 
-@ColumnInfo(name = "employee_name")
-@NonNull
-    private String employeeName;
+    @ColumnInfo(name = "employee_eid")
+    @NonNull
+    private Integer employeeEid;
 
-@ColumnInfo(name = "project_id")
-@NonNull
+    @ColumnInfo(name = "project_id")
+    @NonNull
     private Integer projectId;
 
-@ColumnInfo(name = "project_name")
-private String projectName;
-@ColumnInfo(name = "is_active")
-    private boolean isActive;
+    @ColumnInfo(name = "is_active")
+    @NonNull
+    private Boolean isActive;
 
-    private int priority;
+    @NonNull
+    private Integer priority;
 
-    public EmployeeProject(@NonNull  String employeeName, @NonNull Integer projectId, @NonNull String projectName, Boolean isActive, Integer priority) {
-        this.employeeName = employeeName;
+    @ColumnInfo(name = "project_name")
+    private String projectName;
+
+    @ColumnInfo(name = "employee_name")
+    @NonNull
+    private String employeeName;
+
+    public EmployeeProject(@NonNull Integer employeeEid, @NonNull Integer projectId, @NonNull Boolean isActive, @NonNull Integer priority, @NonNull String projectName, @NonNull String employeeName) {
+        this.employeeEid = employeeEid;
         this.projectId = projectId;
         this.projectName = projectName;
         this.isActive = isActive;
         this.priority = priority;
+        this.employeeName = employeeName;
     }
 
     @NonNull
-    public String getEmployeeName() {
-        return employeeName;
+    public Integer getEmployeeEid() {
+        return employeeEid;
     }
 
-    public void setEmployeeName(@NonNull String employeeName) {
-        this.employeeName = employeeName;
+    public void setEmployeeEid(@NonNull Integer employeeEid) {
+        this.employeeEid = employeeEid;
     }
 
     @NonNull
@@ -74,19 +79,21 @@ private String projectName;
         this.projectId = projectId;
     }
 
-    public boolean isActive() {
+    @NonNull
+    public Boolean isActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(@NonNull Boolean active) {
         isActive = active;
     }
 
-    public int getPriority() {
+    @NonNull
+    public Integer getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(@NonNull Integer priority) {
         this.priority = priority;
     }
 
@@ -97,5 +104,14 @@ private String projectName;
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
+    }
+
+    @NonNull
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(@NonNull String employeeName) {
+        this.employeeName = employeeName;
     }
 }

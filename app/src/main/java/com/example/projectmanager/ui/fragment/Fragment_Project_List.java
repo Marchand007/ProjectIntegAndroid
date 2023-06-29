@@ -21,7 +21,7 @@ import android.view.ViewGroup;
 import com.example.projectmanager.R;
 import com.example.projectmanager.RecyclerCallback;
 import com.example.projectmanager.data.models.Project;
-import com.example.projectmanager.ui.adapter.ProjectAdapter;
+import com.example.projectmanager.ui.adapter.ProjectListForAddAdapter;
 import com.example.projectmanager.ui.viewmodel.EmployeeProjectViewModel;
 import com.example.projectmanager.ui.viewmodel.ProjectViewModel;
 
@@ -30,8 +30,9 @@ import java.util.List;
 
 public class Fragment_Project_List extends Fragment {
 
-    private ProjectAdapter adapter = new ProjectAdapter();
+    private ProjectListForAddAdapter adapter = new ProjectListForAddAdapter();
     private String employeeName;
+    private Integer employeeEid;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,6 +58,7 @@ public class Fragment_Project_List extends Fragment {
             return;
         }
         employeeName = arguments.getString("employeeName");
+        employeeEid = arguments.getInt("employeeEid");
 
 
         projectViewModel.getAllProject().observe(getViewLifecycleOwner(), new Observer<List<Project>>() {
@@ -69,12 +71,11 @@ public class Fragment_Project_List extends Fragment {
         adapter.callbackAdd = new RecyclerCallback<Project>() {
             @Override
             public void returnValue(Project project) {
-                new AlertDialog.Builder(view.getContext()).setTitle("Confirmation de suppresion").setMessage("Êtes-vous vraiment sur de vouloir ajouter " + project.getName() + " a " + employeeName)
+                new AlertDialog.Builder(view.getContext()).setTitle("Confirmation d'ajout").setMessage("Voulez-vous vraiment ajouter " + project.getName() + " a " + employeeName)
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(R.string.confirmerajout, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-
-                                employeeProjectViewModel.addProject(employeeName,project.getId(),project.getName(),true,2);
+                                employeeProjectViewModel.addProject(employeeEid, project.getId(),true,2,project.getName(),employeeName);
                                 NavController navController = Navigation.findNavController(view);
                                 navController.navigateUp();
                             }

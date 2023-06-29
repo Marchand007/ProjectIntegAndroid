@@ -32,7 +32,7 @@ public class EmployeeProjectCompletedAdapter extends ListAdapter<EmployeeProject
 
             @Override
             public boolean areContentsTheSame(@NonNull EmployeeProject oldItem, @NonNull EmployeeProject newItem) {
-                return oldItem.getEmployeeName().equals(newItem.getEmployeeName()) && oldItem.getProjectId().equals(newItem.getProjectId());
+                return oldItem.getEmployeeEid().equals(newItem.getEmployeeEid()) && oldItem.getProjectId().equals(newItem.getProjectId());
             }
         });
 
