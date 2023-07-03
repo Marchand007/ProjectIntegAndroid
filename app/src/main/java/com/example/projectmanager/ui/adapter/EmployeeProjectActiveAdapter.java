@@ -1,10 +1,13 @@
 package com.example.projectmanager.ui.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +32,9 @@ public class EmployeeProjectActiveAdapter extends ListAdapter<EmployeeProject, E
     public RecyclerCallback<EmployeeProject> callbackDelete = (U) -> {
     };
     public RecyclerCallback<EmployeeProject> callbackCompleted = (U) -> {
+    };
+
+    public RecyclerCallback<EmployeeProject> callbackChangePriority = (U) -> {
     };
 
     public EmployeeProjectActiveAdapter() {
@@ -67,12 +73,21 @@ public class EmployeeProjectActiveAdapter extends ListAdapter<EmployeeProject, E
         private ImageButton btnDeleteEmployeeProject;
         private ImageButton btnMarkAsCompleted;
 
+        private RadioGroup radioGroupPriority;
+        private RadioButton radioButtonBas;
+        private RadioButton radioButtonNormal;
+        private RadioButton radioButtonEleve;
+
         public ViewHolder(@NonNull View actualView) {
             super(actualView);
             project_name = actualView.findViewById(R.id.textViewEmployeeProjectActiveName);
             btnViewProjectDetail = actualView.findViewById(R.id.button_view_project_detail_in_employeeprojectactive);
             btnDeleteEmployeeProject = actualView.findViewById(R.id.button_delete_employeeprojectactive);
             btnMarkAsCompleted = actualView.findViewById(R.id.button_complete_project);
+            radioGroupPriority = actualView.findViewById(R.id.radioGroupPriorityActive);
+            radioButtonBas = actualView.findViewById(R.id.radio_button_low_priority_active);
+            radioButtonNormal = actualView.findViewById(R.id.radioButto_normal_priority_active);
+            radioButtonEleve = actualView.findViewById(R.id.radio_button_high_priority_active);
 
             btnViewProjectDetail.setOnClickListener(v -> {
                 callbackView.returnValue(employeeProject);
@@ -83,12 +98,31 @@ public class EmployeeProjectActiveAdapter extends ListAdapter<EmployeeProject, E
             btnMarkAsCompleted.setOnClickListener(v -> {
                 callbackCompleted.returnValue(employeeProject);
             });
+
+            radioButtonBas.setOnClickListener(v -> {
+                employeeProject.setPriority(3);
+                callbackChangePriority.returnValue(employeeProject);
+            });
+            radioButtonNormal.setOnClickListener(v -> {
+                employeeProject.setPriority(2);
+                callbackChangePriority.returnValue(employeeProject);
+            });
+            radioButtonEleve.setOnClickListener(v -> {
+                employeeProject.setPriority(1);
+                callbackChangePriority.returnValue(employeeProject);
+            });
         }
 
         public void bind(EmployeeProject employeeProject) {
-            project_name.setText(employeeProject.getProjectName());
             this.employeeProject = employeeProject;
+            final Integer priority = employeeProject.getPriority();
+
+            project_name.setText(employeeProject.getProjectName());
+            switch (priority) {
+                case 1 -> radioButtonEleve.setChecked(true);
+                case 2 -> radioButtonNormal.setChecked(true);
+                case 3 -> radioButtonBas.setChecked(true);
+            }
         }
     }
-
 }

@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/radioGroupPriorityProjectList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <RadioButton
-                android:id="@+id/radio_button_low_priority"
+                android:id="@+id/radio_button_low_priority_project_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -41,7 +41,7 @@
                 android:textAlignment="center" />
 
             <RadioButton
-                android:id="@+id/radioButto_normal_priority"
+                android:id="@+id/radioButto_normal_priority_project_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -51,7 +51,7 @@
                 android:checked="true"/>
 
             <RadioButton
-                android:id="@+id/radio_button_high_priority"
+                android:id="@+id/radio_button_high_priority_project_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -70,7 +70,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupPriorityProjectList"
             tools:listitem="@layout/project_item">
 
         </androidx.recyclerview.widget.RecyclerView>

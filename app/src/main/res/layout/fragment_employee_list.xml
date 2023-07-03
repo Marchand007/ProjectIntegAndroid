@@ -41,9 +41,9 @@
             android:id="@+id/buttonAddEmployee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:text="@string/ajouteremploye"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextEmployeeRoleToAdd" />
 
         <View
@@ -71,6 +71,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"
             tools:listitem="@layout/employee_item" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="@string/textNoEmployeeaajouter"
+            android:inputType="number"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAddEmployee"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmployeeRoleToAdd" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

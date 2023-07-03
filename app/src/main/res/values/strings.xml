@@ -18,6 +18,7 @@
     <string name="textdatedealine">Date du deadline</string>
     <string name="textnomemployeeaajouter">Nom de l\'employé à ajouter</string>
     <string name="textRoleemployeeaajouter">Occupation / Role de l\'employé</string>
+    <string name="textNoEmployeeaajouter">Numéro de l\'employé</string>
     <string name="priorite">Priorité du projet</string>
     <string name="elevé">Elevé</string>
     <string name="normal">Normal</string>

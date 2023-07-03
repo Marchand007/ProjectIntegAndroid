@@ -14,9 +14,12 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.example.projectmanager.R;
 import com.example.projectmanager.RecyclerCallback;
@@ -60,6 +63,7 @@ public class Fragment_Project_List extends Fragment {
         employeeName = arguments.getString("employeeName");
         employeeEid = arguments.getInt("employeeEid");
 
+        RadioGroup radioGroupPriority = view.findViewById(R.id.radioGroupPriorityProjectList);
 
         projectViewModel.getAllProject().observe(getViewLifecycleOwner(), new Observer<List<Project>>() {
             @Override
@@ -75,7 +79,13 @@ public class Fragment_Project_List extends Fragment {
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(R.string.confirmerajout, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                employeeProjectViewModel.addProject(employeeEid, project.getId(),true,2,project.getName(),employeeName);
+                                int priority = 2;
+                                final String value = ((RadioButton)view.findViewById(radioGroupPriority.getCheckedRadioButtonId())).getText().toString();
+                                switch (value) {
+                                    case "Bas" -> priority = 3;
+                                    case "Elevé" -> priority = 1;
+                                }
+                                employeeProjectViewModel.addProject(employeeEid, project.getId(),true,priority,project.getName(),employeeName);
                                 NavController navController = Navigation.findNavController(view);
                                 navController.navigateUp();
                             }

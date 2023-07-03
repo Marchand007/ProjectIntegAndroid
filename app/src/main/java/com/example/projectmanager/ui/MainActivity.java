@@ -78,3 +78,5 @@ public class MainActivity extends AppCompatActivity {
 //  avec un autre boutton
 
 // utiliser les getstring et les R.string
+
+// ajouter le numero d'employé lors de l'ajout d'un employé

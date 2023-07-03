@@ -159,6 +159,14 @@ public class Fragment_Project_List_By_Employee extends Fragment {
             }
         };
 
+        adapterActive.callbackChangePriority = new RecyclerCallback<EmployeeProject>() {
+            @Override
+            public void returnValue(EmployeeProject employeeProject) {
+                employeeProjectViewModel.updateEmployeeProject(employeeProject);
+
+            }
+        };
+
         @SuppressLint("UseSwitchCompatOrMaterialCode")
         Switch switchStatusProjectView = view.findViewById(R.id.switch1);
 

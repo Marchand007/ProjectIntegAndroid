@@ -37,7 +37,52 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_complete_project"
                 app:layout_constraintStart_toEndOf="@+id/button_view_project_detail_in_employeeprojectactive"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupPriorityActive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmployeeProjectActiveName">
+
+                <RadioButton
+                    android:id="@+id/radio_button_low_priority_active"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@string/bas"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:id="@+id/radioButto_normal_priority_active"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:buttonTint="#FFC107"
+                    android:checked="true"
+                    android:text="@string/normal"
+                    android:textAlignment="center"
+                    android:textColorHighlight="#FFC107"
+                    android:textColorLink="#FFC107" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_high_priority_active"
+                    style="@android:style/Widget.DeviceDefault.Light.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@string/elevé"
+                    android:textAlignment="center"
+                    android:textColorHighlight="#FF0000"
+                    android:textColorLink="#FF0000" />
+            </RadioGroup>
 
             <ImageButton
                 android:id="@+id/button_view_project_detail_in_employeeprojectactive"
@@ -46,7 +91,7 @@
                 android:background="@color/lightgreen"
                 android:contentDescription="VIEWEMPLOYEEPROJECT"
                 android:scrollbarSize="4dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewEmployeeProjectActiveName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:drawable/ic_menu_view" />
@@ -57,7 +102,7 @@
                 android:layout_height="0dp"
                 android:background="@color/lightgreen"
                 android:contentDescription="DELETEEMPLOYEE"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/radioGroupPriorityActive"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:drawable/ic_delete" />
@@ -67,7 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:backgroundTint="@color/lightgreen"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/radioGroupPriorityActive"
                 app:layout_constraintEnd_toStartOf="@+id/button_delete_employeeprojectactive"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="?android:attr/textCheckMark" />
